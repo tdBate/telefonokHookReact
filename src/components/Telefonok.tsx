@@ -21,7 +21,7 @@ export function Telefonok() {
                 const valasz = await fetch(URL);
                 const adatok: Telefon[] = await valasz.json();
 
-                setTelefonok(adatok);
+                setTelefonok(adatok.sort((a, b) => a.ar - b.ar));
             } catch (err) {
                 console.error(err);
             }
@@ -30,13 +30,7 @@ export function Telefonok() {
     }, [])
 
     useEffect(() => {
-        setTelefonok(telefonok.sort((a, b) => a.id - b.id));
-
-        if (novekvo) {
-            setTelefonok(telefonok.reverse())
-        }
-
-        console.log(novekvo)
+        setTelefonok(telefonok.toReversed())
     }, [novekvo]);
 
     useEffect
