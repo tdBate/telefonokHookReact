@@ -9,7 +9,7 @@ type Telefon = {
 }
 
 export function Telefonok() {
-    const URL = "";
+    const URL = "phones.json";
 
     const [telefonok, setTelefonok] = useState<Telefon[]>([]);
 
