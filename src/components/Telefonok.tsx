@@ -11,6 +11,8 @@ type Telefon = {
 export function Telefonok() {
     const URL = "phones.json";
 
+    const [novekvo, setNovekvo] = useState<boolean>(false);
+
     const [telefonok, setTelefonok] = useState<Telefon[]>([]);
 
     useEffect(() => {
@@ -26,6 +28,18 @@ export function Telefonok() {
         }
         adatokBetoltese();
     }, [])
+
+    useEffect(() => {
+        setTelefonok(telefonok.sort((a, b) => a.id - b.id));
+
+        if (novekvo) {
+            setTelefonok(telefonok.reverse())
+        }
+
+        console.log(novekvo)
+    }, [novekvo]);
+
+    useEffect
 
     return (
         <>
@@ -52,6 +66,10 @@ export function Telefonok() {
                     ))}
                 </tbody>
             </table>
+
+            <button onClick={() => {
+                setNovekvo(!novekvo);
+            }}>Irányváltás</button>
         </>
     )
 
