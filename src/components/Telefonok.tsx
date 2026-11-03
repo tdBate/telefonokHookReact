@@ -21,7 +21,7 @@ export function Telefonok() {
                 const valasz = await fetch(URL);
                 const adatok: Telefon[] = await valasz.json();
 
-                setTelefonok(adatok.sort((a, b) => a.ar - b.ar));
+                setTelefonok(adatok.toSorted((a, b) => a.ar - b.ar));
             } catch (err) {
                 console.error(err);
             }
