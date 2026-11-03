@@ -27,6 +27,34 @@ export function Telefonok() {
         adatokBetoltese();
     })
 
+    return (
+        <>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Név</td>
+                        <td>gyártó</td>
+                        <td>ár</td>
+                        <td>memória</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {telefonok.map(item => (
+                        <tr key={item.id}>
+                            <td>{item.id}</td>
+                            <td>{item.nev}</td>
+                            <td>{item.gyarto}</td>
+                            <td>{item.ar}</td>
+                            <td>{item.memoria}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </>
+    )
+
 
 
 }
